@@ -54,33 +54,33 @@
 ## 🧮 Key DAX Measures
 
 ### Volume
-```dax
+dax
 Vol Kg = SUMX(Sales, Sales[Vol] / RELATED(Product[Unit to Kg]))
 Vol h_Tonnes = [Vol Kg] / 100000
-```
+
 
 ### G2N Components
-```dax
+dax
 Net Revenue = 
     [Gross Sales] - [Resizing] + [Tax Incentives] 
     - [Free Goods] - [Cut-off] + [Royalty] 
     - [Customer Grade Discount]
 
 G2N = [Gross Sales] - [Net Revenue]
-```
+
 
 ### Time Intelligence
-```dax
+dax
 NR PY     = CALCULATE([Net Revenue], SAMEPERIODLASTYEAR('Calendar'[Date]))
 NR YTD    = TOTALYTD([Net Revenue], 'Calendar'[Date])
 vs PY NR% = DIVIDE([Net Revenue] - [NR PY], [Net Revenue])  -- divide by CY
-```
+
 
 ### Page 3 KPIs
-```dax
+dax
 NR Share%  = DIVIDE([Net Revenue], CALCULATE([Net Revenue], ALL('Calendar'), ALL(Sales)))
 Discount%  = DIVIDE([Customer Grade Discount], [Gross Sales])
-```
+
 
 ---
 
@@ -114,11 +114,11 @@ Discount%  = DIVIDE([Customer Grade Discount], [Gross Sales])
 
 ## 🗂️ Files
 
-```
+
 ├── All_data.xlsx          # Source data
 ├── GreenBeverages.pbix    # Power BI report
 └── README.md
-```
+
 
 ---
 
